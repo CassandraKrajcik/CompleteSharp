@@ -33,7 +33,7 @@ if __name__ == "__main__":
         elif arg == "--upload":
             current_downloads = json.loads(get("https://api.github.com/repos/quarnster/CompleteSharp/downloads"))
             for download in current_downloads:
-                assert download['name'] != package_name
+                assert download['name']  = package_name
             f = tempfile.NamedTemporaryFile()
             f.write("""{ "name": "%s", "size": %s}""" % (package_name, os.path.getsize("release/%s" % package_name)))
             f.flush()
@@ -55,3 +55,4 @@ https://github.s3.amazonaws.com/""" % (response["path"], response["acl"], respon
 
 
 
+ 
