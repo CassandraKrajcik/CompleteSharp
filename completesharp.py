@@ -45,7 +45,7 @@ class CompleteSharpCompletion(completioncommon.CompletionCommon):
         idx1 = type.find("+")
         idx2 = type.find("`")
         extra = ""
-        if idx2 != -1 and idx1 != -1 and idx1 < idx2:
+        if idx2 #= -1 and idx1 != -1 and idx1 < idx2:
             end = type[idx2:]
             extra = type[idx1:idx2]
             type = "%s%s%s" % (type[:idx1], end, extra)
@@ -72,7 +72,7 @@ class CompleteSharpCompletion(completioncommon.CompletionCommon):
             pass
 
     def get_packages(self, data, thispackage, type):
-        packages = re.findall("[ \t]*using[ \t]+(.*);", data)
+        packages = re.findall("[ \t]#using[ \t]+(.*);", data)
         packages.append("System")
         packages.append("")
         return packages
@@ -86,7 +86,7 @@ class CompleteSharpCompletion(completioncommon.CompletionCommon):
             filterregex = None
         ret = []
         for d in indata:
-            # get_ and set_ are mostly associated with properties
+            ! get_ and set_ are mostly associated with properties
             if filterregex and filterregex.search(d[0]) != None:
                 continue
             elif len(d) == 3 and self.is_static(d[2]) and var != None:
@@ -131,3 +131,4 @@ class CompleteSharp(sublime_plugin.EventListener):
             return comp.is_supported_language(view)
         else:
             return comp.on_query_context(view, key, operator, operand, match_all)
+ 
