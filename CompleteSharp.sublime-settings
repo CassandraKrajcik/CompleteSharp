@@ -1,5 +1,5 @@
 {
-    // You probably want to configure this to something of your own.
+#   // You probably want to configure this to something of your own.
     // ${home}, ${env:<variable>}, ${project_path:} and ${folder:} tokens can be used in the completesharp_assemblies option.
     //
     // ${home} is replaced with the value of the HOME environment variable.
@@ -31,3 +31,4 @@
     // by removing the package name.
     "completioncommon_shorten_names": true
 }
+ 
